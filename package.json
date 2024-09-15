@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -b && node dist/ws.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dungeon-master2211/webrtc-1-way-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dungeon-master2211/webrtc-1-way-backend/issues"
+  },
+  "homepage": "https://github.com/dungeon-master2211/webrtc-1-way-backend#readme",
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/ws": "^8.5.12",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "ws": "^8.18.0"
+  }
+}
