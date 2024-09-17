@@ -20,17 +20,19 @@ wss.on('connection', function connection(ws) {
         receiverSocket = ws
     }
     else if (message?.type==='create-offer'){
-        receiverSocket?.send(JSON.stringify({type:'offer'}))
+        receiverSocket?.send(JSON.stringify({type:'offer',sdp:message.sdp}))
     }
     else if (message?.type==='create-answer'){
-        senderSocket?.send(JSON.stringify({type:'answer'}))
+        senderSocket?.send(JSON.stringify({type:'answer',sdp:message.sdp        }))
     }
     else if(message?.type === 'ice-candidates'){
         if(ws===senderSocket){
-            receiverSocket?.send(JSON.stringify({type:'ice-candidates'}))
+            console.log('sending ice candidate to receiver')
+            receiverSocket?.send(JSON.stringify({type:'ice-candidates',candidates:message.candidate}))
         }
         else if(ws===receiverSocket){
-            senderSocket?.send(JSON.stringify({type:'ice-candidates'}))
+            console.log('sending ice candidate to sender')
+            senderSocket?.send(JSON.stringify({type:'ice-candidates',candidates:message.candidate}))
         }
     }
     console.log('received: %s', data);

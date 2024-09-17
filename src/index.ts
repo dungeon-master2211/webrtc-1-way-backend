@@ -8,6 +8,9 @@ dotenv.config()
 
 const server= http.createServer(app)
 const port = process.env.PORT
+app.get('/',async(req,res,next)=>{
+    return res.status(200).json({'message':'working!'})
+})
 server.listen(port,()=>{
     console.log('app is listening on port',port)
 })
